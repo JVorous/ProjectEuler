@@ -26,7 +26,6 @@ def upper_bound_for_p_n(n):
 
 
 def find_n_prime(n):
-    #primes = list(find_primes(upper_bound_for_p_n(n)))
     primes = list(find_primes(upper_bound_for_p_n(n)))
     return primes[n - 1]
 
