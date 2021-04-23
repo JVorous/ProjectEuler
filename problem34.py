@@ -24,18 +24,23 @@ import time
 #create dictionary of factorial values so we don''t need to re-calc them a bunch
 my_dict ={}
 for i in range(10):
-    my_dict[str(i)] = math.factorial(i)
+    my_dict[i] = math.factorial(i)
 
 
 def sum_factorials(n):
-    return sum([my_dict[x] for x in list(str(n))])
+    #return sum([my_dict[x] for x in list(str(n))])
+    sum = 0
+    num = n
+    while num > 0:
+        sum += my_dict[num % 10]
+        num //= 10
 
+    return sum
 
 
 #driver code
 start_time = time.time()
 num_list = []
-
 
 for i in range(3, 9999999):
     if sum_factorials(i) == i:
