@@ -17,7 +17,8 @@ _______________
 
 OBSERVATIONS
 
-assume x is some integer, of length 5, that satisfies the demand -- thus there exists a series of consecutive values (1, 2,...n) with n > 1.
+assume x is some integer, of length 5, that satisfies the demand -- thus there exists a series of consecutive
+values (1, 2,...n) with n > 1.
 but the concatenated product of the first values -- X*1 and X*2 will be 10 digits in length.
 a 10 digit number cannot be 1 - 9 pandigital.
 
@@ -26,14 +27,15 @@ thus x will have max length of 4 digits.
 
 import time
 
-def is_pandigital(a):
-    check_list = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+def is_pandigital(a, l):
+    check_list = [x for x in range(1,l+1)]
+
     if len(a) == len(set(a)):
         counter = 0
         for x in a:
             if int(x) in check_list:
                 counter += 1
-        if counter == 9:
+        if counter == l:
             return True
 
 def can_pandigit(n):
@@ -43,7 +45,7 @@ def can_pandigit(n):
     x = 1
     while not done:
         prod_string += str(n*x)
-        if is_pandigital(prod_string):
+        if is_pandigital(prod_string, 9):
             done = True
         if len(prod_string) > 9:
             break
